@@ -116,7 +116,7 @@ knn.fit(x_train, y_train)
 #Predict the response for test dataset
 y_pred = knn.predict(x_test)
 #plot confusion matrix
-plot_confusion_matrix(clf,
+plot_confusion_matrix(knn,
                       x_test,
                       y_test,
                       values_format='d',
@@ -159,4 +159,13 @@ for q in test_img:
 #print(len(y_img_prediction))
 #print(y_img_prediction[0])
 print('accuracy:',100*accuracy_score(y_test, y_img_prediction,normalize=True))
+print('no of correct predictions:',accuracy_score(y_test, y_img_prediction,normalize=False))
+
+from sklearn.metrics import plot_confusion_matrix
+
+plot_confusion_matrix(clf1,
+                      test_img,
+                      y_test,
+                      values_format='d',
+                     )
 print('no of correct predictions:',accuracy_score(y_test, y_img_prediction,normalize=False))
